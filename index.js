@@ -44,3 +44,4 @@ function normalizeJson(json) {
 const result = json2ts.convert(JSON.stringify(jsonInput));
 
 fs.writeFileSync(`./${fileName}.d.ts`, result);
+console.log(`Successfully created ${fileName}.d.ts`);
