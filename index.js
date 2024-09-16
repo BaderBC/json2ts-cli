@@ -21,10 +21,18 @@ const jsonInput = JSON.parse(jsonStr);
 normalizeJson(jsonInput);
 
 function normalizeJson(json) {
+    if (!json) return;
     Object.keys(json).forEach(key => {
-        console.log('key: ', key);
-        let newKey = key.replaceAll(/[\s-]/g, "_");
-        newKey = latinize(newKey);
+        let newKey = latinize(key);
+
+        // if key starts with a number, prefix it with _
+        if (!isNaN(+newKey[0])) {
+            newKey = '_' + newKey;
+        }
+
+        // replace unhandled special characters with _
+        newKey = newKey.replaceAll(/[^a-zA-Z0-9_$]/g, '_');
+
         if (newKey !== key) {
             json[newKey] = json[key];
             delete json[key];
@@ -36,4 +44,3 @@ function normalizeJson(json) {
 const result = json2ts.convert(JSON.stringify(jsonInput));
 
 fs.writeFileSync(`./${fileName}.d.ts`, result);
-console.log(`Successfully generated ${fileName}.d.ts`);
