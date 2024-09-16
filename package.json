@@ -1,6 +1,8 @@
 {
   "name": "json2ts-cli",
-  "bin": "./bin/index.js",
+  "bin": {
+    "json2ts": "./bin/index.js"
+  },
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
