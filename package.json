@@ -1,5 +1,5 @@
 {
-  "name": "json2ts",
+  "name": "json2ts-cli",
   "bin": "./bin/index.js",
   "version": "1.0.0",
   "description": "",
@@ -7,7 +7,6 @@
   "scripts": {
     "build": "rollup -c ./rollup.config.mjs"
   },
-  "private": true,
   "dependencies": {
     "json2ts": "^0.0.7",
     "latinize": "^2.0.0",
