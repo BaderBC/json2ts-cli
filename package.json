@@ -4,7 +4,7 @@
     "json2ts": "./bin/index.js"
   },
   "type": "commonjs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
